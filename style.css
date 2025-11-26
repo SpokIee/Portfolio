@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arimo, sans-serif;
+    background: #ffffff;
+    color: #000000;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background: #121212;
+    color: #f5f5f5;
+}
+
+#themeIcon {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    filter: invert(50%);         
+}
+
+#themeIcon:hover {
+    transform: scale(1.1);
+}
+
+body.dark #themeIcon {
+    filter: invert(50%);        
+}
+
+.page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px 60px;
+}
+
+
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.about-text h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.about-text p {
+    margin: 0;
+    max-width: 460px;
+    list-style: justify;
+    line-height: 1.5;
+}
+
+.section {
+    margin-top: 28px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: 1px solid #d0d7de;
+    background: #ffffff;
+    color: #24292f;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.social-btn .icon {
+    width : 20px;
+    height: 20px;
+}
+
+.social-btn:hover {
+    background: #f3f4f6;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+    transform: translateY(-1px);
+}
+
+body.dark .social-btn {
+    background: #2e2f30;
+    border-color: #4b5563;
+    color: #e5e7eb;
+}
+
+body.dark .social-btn:hover {
+    background: #2c2c2c;
+}
+
+.section h2 {
+    margin: 0 0 15px;
+}
+
+.card {
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+body.dark .card {
+    background: #1f1f1f;
+}
+
+.card li {
+    margin: 10px 0;
+}

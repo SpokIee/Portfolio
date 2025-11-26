@@ -65,7 +65,7 @@ body.dark #themeIcon {
 .about-text p {
     margin: 0;
     max-width: 460px;
-    list-style: justify;
+    text-align: justify;
     line-height: 1.5;
 }
 
@@ -132,4 +132,39 @@ body.dark .card {
 
 .card li {
     margin: 10px;
+}
+
+/* For mobile screen */
+@media (max-width: 600px) {
+    .page {
+        max-width: 100%;
+        padding: 80px 16px 40px;
+    }
+
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .profile {
+        width: 130px;
+        height: 130px;
+    }
+
+    .about-text h1 {
+        font-size: 22px;
+    }
+
+    .about-text p {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .card {
+        padding: 12px 14px;
+    }
 }

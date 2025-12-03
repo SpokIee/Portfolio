@@ -23,7 +23,7 @@ body.dark {
     right: 24px;
     cursor: pointer;
     transition: transform 0.15s ease, filter 0.15s ease;
-    filter: invert(50%);         
+    filter: invert(50%);
 }
 
 #themeIcon:hover {
@@ -31,7 +31,7 @@ body.dark {
 }
 
 body.dark #themeIcon {
-    filter: invert(50%);        
+    filter: invert(50%);
 }
 
 .page {
@@ -69,9 +69,29 @@ body.dark #themeIcon {
     line-height: 1.5;
 }
 
+
 .section {
     margin-top: 28px;
 }
+
+.section h2 {
+    margin: 0 0 15px;
+}
+
+.card {
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+body.dark .card {
+    background: #1f1f1f;
+}
+
+.card li {
+    margin: 10px;
+}
+
 
 .social-links {
     display: flex;
@@ -96,7 +116,7 @@ body.dark #themeIcon {
 }
 
 .social-btn .icon {
-    width : 20px;
+    width: 20px;
     height: 20px;
 }
 
@@ -116,25 +136,52 @@ body.dark .social-btn:hover {
     background: #2c2c2c;
 }
 
-.section h2 {
-    margin: 0 0 15px;
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
 }
 
-.card {
-    background: #f2f2f2;
-    border-radius: 10px;
-    padding: 10px 20px;
+.project-card {
+    flex: 1 1 230px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease,  0.15s ease;
 }
 
-body.dark .card {
-    background: #1f1f1f;
+.project-card h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
 }
 
-.card li {
-    margin: 10px;
+.project-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
-/* For mobile screen */
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+
+body.dark .project-card {
+    background: #181818;
+    border-color: #2f2f2f;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+body.dark .project-card:hover {
+    background: #202020;
+}
+
+/* Mobile Fixes */
 @media (max-width: 600px) {
     .page {
         max-width: 100%;
@@ -166,5 +213,9 @@ body.dark .card {
 
     .card {
         padding: 12px 14px;
+    }
+
+    .projects-grid {
+        flex-direction: column;
     }
 }

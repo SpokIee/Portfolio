@@ -50,18 +50,17 @@
                 Raphael Dumdum
             </a>
 
-            <button type="button" id="navToggle" class="nav-toggle hidden max-[600px]:flex flex-col justify-center gap-[5px] w-8 h-8 p-1 ml-auto border border-neutral-300 dark:border-neutral-600 rounded text-neutral-900 dark:text-white" aria-label="Toggle navigation" aria-expanded="false">
+            <button type="button" id="navToggle" class="nav-toggle hidden max-[600px]:flex flex-col justify-center gap-[5px] w-8 h-8 p-1 ml-auto border border-neutral-300 dark:border-neutral-600 rounded-lg text-neutral-900 dark:text-white" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
             <nav id="siteNav" class="flex items-center gap-1 ml-auto max-[600px]:hidden max-[600px]:flex-col max-[600px]:items-stretch max-[600px]:w-full max-[600px]:order-last max-[600px]:pt-3 max-[600px]:mt-2 max-[600px]:border-t max-[600px]:border-neutral-200 max-[600px]:dark:border-neutral-700 max-[600px]:gap-0.5" aria-label="Main navigation">
-                <a href="#about" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">About</a>
-                <a href="#projects" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Projects</a>
-                <a href="#sidelines" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Sidelines</a>
-                <a href="#credentials" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Credentials</a>
-                <a href="#contact" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Contact</a>
+                <a href="#about" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap rounded-lg">About</a>
+                <a href="#projects" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap rounded-lg">Projects</a>
+                <a href="#sidelines" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap rounded-lg">Sidelines</a>
+                <a href="#credentials" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap rounded-lg">Credentials</a>
             </nav>
 
             <img src="src/img/dark.svg" id="themeIcon" class="w-7 h-7 cursor-pointer shrink-0 max-[600px]:order-3" alt="Toggle theme">
@@ -75,19 +74,30 @@
             <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
                 <div>
                     <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-3">About</p>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-neutral-900 dark:text-white">
-                        Hello, I'm<br>
-                        <span class="text-accent">a Programming Student</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1]">
+                        <span class="text-neutral-900 dark:text-white">Hello, I'm</span><br>
+                        <span class="text-accent">Raphael Dumdum</span>
                     </h1>
                     <p class="mt-6 text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg">
-                        Hello, I'm Raphael Dumdum, a passionate programming student
-                        at Mapua Malayan Colleges Mindanao who is still surviving. And
-                        a part-time Roblox Developer specializing on graphic designs,
-                        building, 3D modeling, and game design.
+                        a passionate programming student at Mapua Malayan Colleges Mindanao who is still surviving. And a part-time Roblox Developer specializing on graphic designs, building, 3D modeling, and game design.
                     </p>
-                    <a href="#projects" class="inline-block mt-8 px-8 py-3.5 bg-accent text-bgDark font-semibold text-sm rounded-sm hover:bg-accentLight transition-colors">
-                        View My Work
-                    </a>
+
+                    <div class="flex flex-wrap gap-3 mt-8">
+                        <a href="https://github.com/SpokIee" target="_blank" rel="noopener noreferrer" class="inline-block px-7 py-3 bg-accent text-bgDark font-semibold text-sm rounded-full hover:bg-accentLight transition-colors">View GitHub</a>
+                        <a href="#projects" class="inline-block px-7 py-3 border-2 border-accent text-accent font-semibold text-sm rounded-full hover:bg-accent hover:text-bgDark transition-colors">View Projects</a>
+                    </div>
+
+                    <div class="flex items-center gap-3 mt-6">
+                        <a href="https://x.com/SpawkleY" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-11 h-11 rounded-full bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors" aria-label="X profile">
+                            <img src="src/img/x.svg" class="w-5 h-5 dark:invert" alt="">
+                        </a>
+                        <a href="https://github.com/SpokIee" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-11 h-11 rounded-full bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors" aria-label="GitHub profile">
+                            <img src="src/img/github.png" class="w-5 h-5" alt="">
+                        </a>
+                        <a href="https://www.roblox.com/users/299680615/profile" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-11 h-11 rounded-full bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors" aria-label="Roblox profile">
+                            <img src="src/img/roblox.png" class="w-5 h-5" alt="">
+                        </a>
+                    </div>
                 </div>
                 <div class="flex justify-center md:justify-end">
                     <img src="src/img/picture.jpg" alt="Raphael's photo" class="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover border-4 border-accent shadow-lg">
@@ -100,60 +110,69 @@
             <div class="mb-10">
                 <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-1">Portfolio</p>
                 <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-3">Projects</h2>
-                <div class="w-16 h-1 bg-accent"></div>
+                <div class="w-16 h-1 bg-accent rounded-full"></div>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                <!-- GabAIRa Care — featured capstone -->
-                <article class="sm:col-span-2 lg:col-span-3 bg-white dark:bg-surfaceDark p-6 sm:p-8 rounded-sm border-2 border-accent shadow-md">
-                    <span class="inline-block mb-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wide bg-accent text-bgDark rounded-full">Capstone Project</span>
+                <!-- GabAIRa Care — featured school project -->
+                <article class="sm:col-span-2 lg:col-span-3 bg-white dark:bg-surfaceDark p-6 sm:p-8 rounded-2xl border-2 border-accent shadow-md">
+                    <span class="inline-block mb-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wide bg-accent text-bgDark rounded-full">School Projects</span>
                     <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-1">GabAIRa Care</h3>
                     <p class="text-sm italic text-neutral-500 dark:text-neutral-400 mb-4">GabayRa Care: An AI-Driven Medication Management Application with IoT Pillbox Integration for Improved Adherence</p>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
                         AI-driven medication management app with IoT pillbox integration, built to help patients with chronic conditions (hypertension, diabetes) stay on top of their medication, with real-time caregiver updates. Uses an XGBoost model trained on 10,000 patient records to predict adherence risk and time reminders (send now / delay / snooze). Syncs with an ESP32-based smart pillbox over REST API — patients confirm doses via physical button or in-app "Taken" tap, caregivers see it live on their dashboard. Built with React Native (Expo) + Neon PostgreSQL. UAT with 9 respondents (incl. a pharmacist): 100% pass rate (Patient role), 99.1% (Caretaker role), ISO/IEC 25010 rating 4.09 ("Acceptable"), highest in Usability (4.80).
                     </p>
+
+                    <div class="flex gap-3 overflow-x-auto pb-2 mb-5 snap-x snap-mandatory scrollbar-thin">
+                        <img src="src/img/gabaira-1.jpg" alt="GabAIRa Care dashboard screenshot" class="gallery-thumb shrink-0 w-28 sm:w-32 h-auto rounded-lg border border-neutral-200 dark:border-neutral-600 snap-start" data-full="src/img/gabaira-1.jpg">
+                        <img src="src/img/gabaira-2.jpg" alt="GabAIRa Care medication schedule screenshot" class="gallery-thumb shrink-0 w-28 sm:w-32 h-auto rounded-lg border border-neutral-200 dark:border-neutral-600 snap-start" data-full="src/img/gabaira-2.jpg">
+                        <img src="src/img/gabaira-3.jpg" alt="GabAIRa Care calendar screenshot" class="gallery-thumb shrink-0 w-28 sm:w-32 h-auto rounded-lg border border-neutral-200 dark:border-neutral-600 snap-start" data-full="src/img/gabaira-3.jpg">
+                        <img src="src/img/gabaira-4.jpg" alt="GabAIRa Care medications screenshot" class="gallery-thumb shrink-0 w-28 sm:w-32 h-auto rounded-lg border border-neutral-200 dark:border-neutral-600 snap-start" data-full="src/img/gabaira-4.jpg">
+                    </div>
+
                     <p class="text-sm text-neutral-600 dark:text-neutral-400"><strong class="text-neutral-800 dark:text-neutral-200">Team:</strong> Raphael Miguel P. Dumdum, Jan Jeerzyll T. Hudes, Andre Jan M. Pangan</p>
                     <div class="flex flex-wrap gap-3 mt-5">
-                        <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-accent text-bgDark font-semibold text-sm rounded-sm hover:bg-accentLight transition-colors">Read Full Paper (IMRAD)</a>
-                        <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 border-2 border-accent text-accent font-semibold text-sm rounded-sm hover:bg-accent hover:text-bgDark transition-colors">View APK (Android)</a>
+                        <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-accent text-bgDark font-semibold text-sm rounded-full hover:bg-accentLight transition-colors">Read Full Paper (IMRAD)</a>
+                        <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 border-2 border-accent text-accent font-semibold text-sm rounded-full hover:bg-accent hover:text-bgDark transition-colors">View APK (Android)</a>
                     </div>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
                     <div class="text-accent text-2xl mb-3">👾</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">The Unknown</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400">Simple text-based psychological horror game.</p>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
                     <div class="text-accent text-2xl mb-3">📖</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">Project: Still</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400">Narrative linear game focused on story-driven gameplay.</p>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
                     <div class="text-accent text-2xl mb-3">🌿</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">GreenSense</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Environmental awareness website project.</p>
                     <a href="https://spokiee.github.io/GreenSense/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">Click to view →</a>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
                     <div class="text-accent text-2xl mb-3">⚙️</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">Machine Problems</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Some machine problems that we made earlier.</p>
                     <a href="https://spokiee.github.io/MachineProblems/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">Click to view →</a>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
                     <div class="text-accent text-2xl mb-3">🌤️</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">Philippine Weather</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Simple weather dashboard (Part 3 Examination)</p>
                     <a href="https://dumdum-simple-weather-app.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">Click to view →</a>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                    <span class="inline-block mb-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wide bg-accent text-bgDark rounded-full">School Projects</span>
                     <div class="text-accent text-2xl mb-3">🎵</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">NeuroBeat</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Web-based rhythm game</p>
@@ -168,13 +187,13 @@
             <div class="mb-10">
                 <p class="text-accentDeep text-sm uppercase tracking-widest font-semibold mb-1">Freelance</p>
                 <h2 class="text-3xl sm:text-4xl font-bold text-accentDeep mb-3">Sidelines</h2>
-                <div class="w-16 h-1 bg-accentDeep"></div>
+                <div class="w-16 h-1 bg-accentDeep rounded-full"></div>
                 <p class="mt-4 text-sm text-neutral-600 dark:text-neutral-400">Freelance and hobby work outside of software projects.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-accentDeep hover:shadow-md transition-shadow">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-accentDeep hover:shadow-md transition-shadow">
                     <div class="text-accentDeep text-2xl mb-3">🏗️</div>
                     <h3 class="font-bold text-lg text-accentDeep mb-2">Roblox Development — Building</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400">
@@ -183,7 +202,7 @@
                     </p>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-accentDeep hover:shadow-md transition-shadow">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-accentDeep hover:shadow-md transition-shadow">
                     <div class="text-accentDeep text-2xl mb-3">🎨</div>
                     <h3 class="font-bold text-lg text-accentDeep mb-2">Roblox Development — GFX</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400">
@@ -192,11 +211,11 @@
                     </p>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border-2 border-accentDeep hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border-2 border-accentDeep hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
                     <div class="text-accentDeep text-2xl mb-3">🎮</div>
                     <h3 class="font-bold text-lg text-accentDeep mb-2">Roblox Experiences</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Contributing over 200M visits in Roblox experiences.</p>
-                    <a href="https://www.roblox.com/users/299680615/profile" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 border-2 border-accentDeep text-accentDeep font-semibold text-sm rounded-sm hover:bg-accentDeep hover:text-white transition-colors">View Roblox Profile →</a>
+                    <a href="https://www.roblox.com/users/299680615/profile" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 border-2 border-accentDeep text-accentDeep font-semibold text-sm rounded-full hover:bg-accentDeep hover:text-white transition-colors">View Roblox Profile →</a>
                 </article>
 
             </div>
@@ -207,74 +226,42 @@
             <div class="mb-10">
                 <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-1">Achievements</p>
                 <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-3">Credentials</h2>
-                <div class="w-16 h-1 bg-accent"></div>
+                <div class="w-16 h-1 bg-accent rounded-full"></div>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
                     <div class="text-accent text-2xl mb-3">📜</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-1">[Certificate Title]</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">[Issuing Org — Date]</p>
                     <a href="INSERT LINK" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">View credential →</a>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
                     <div class="text-accent text-2xl mb-3">📜</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-1">[Certificate Title]</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">[Issuing Org — Date]</p>
                     <a href="INSERT LINK" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">View credential →</a>
                 </article>
 
-                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
                     <div class="text-accent text-2xl mb-3">📜</div>
                     <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-1">[Certificate Title]</h3>
                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">[Issuing Org — Date]</p>
                     <a href="INSERT LINK" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">View credential →</a>
                 </article>
 
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="scroll-mt-20 max-[600px]:scroll-mt-28 py-12">
-            <div class="mb-10">
-                <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-1">Get in touch</p>
-                <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-3">Connect with me</h2>
-                <div class="w-16 h-1 bg-accent"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <form id="contactForm" class="space-y-4">
-                    <input type="email" placeholder="Email" class="w-full px-4 py-3.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:border-accent transition-colors">
-                    <textarea placeholder="Message" rows="5" class="w-full px-4 py-3.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
-                    <button type="submit" class="w-full px-6 py-3.5 bg-accent text-bgDark font-semibold text-sm rounded-sm hover:bg-accentLight transition-colors flex items-center justify-center gap-2">
-                        Stay Connected
-                        <span aria-hidden="true">→</span>
-                    </button>
-                </form>
-
-                <div>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-5">Find me on social media:</p>
-                    <div class="flex flex-wrap gap-3">
-                        <a href="https://x.com/SpawkleY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-sm font-medium hover:border-accent transition-colors">
-                            <img src="src/img/x.svg" class="w-5 h-5 dark:invert" alt="">
-                            <span>X</span>
-                        </a>
-                        <a href="https://github.com/SpokIee" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-sm font-medium hover:border-accent transition-colors">
-                            <img src="src/img/github.png" class="w-5 h-5" alt="">
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://www.roblox.com/users/299680615/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-sm font-medium hover:border-accent transition-colors">
-                            <img src="src/img/roblox.png" class="w-5 h-5" alt="">
-                            <span>Roblox</span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
     </main>
+
+    <!-- Screenshot lightbox -->
+    <div id="lightbox" class="hidden fixed inset-0 z-[100] items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+        <button id="lightboxClose" type="button" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition-colors" aria-label="Close preview">&times;</button>
+        <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[90vh] rounded-lg object-contain">
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -3,7 +3,9 @@ const navToggle = document.getElementById("navToggle");
 const siteNav = document.getElementById("siteNav");
 const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("section[id]");
-const contactForm = document.getElementById("contactForm");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxClose = document.getElementById("lightboxClose");
 
 icon.addEventListener("click", () => {
     const isDark = document.documentElement.classList.toggle("dark");
@@ -28,11 +30,40 @@ navLinks.forEach((link) => {
     });
 });
 
-if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+document.querySelectorAll(".gallery-thumb").forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = thumb.dataset.full || thumb.src;
+        lightboxImg.alt = thumb.alt;
+        lightbox.classList.remove("hidden");
+        lightbox.classList.add("flex");
+        document.body.classList.add("overflow-hidden");
+    });
+});
+
+function closeLightbox() {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+    lightboxImg.src = "";
+    document.body.classList.remove("overflow-hidden");
+}
+
+if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightbox) {
+    lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
     });
 }
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox && !lightbox.classList.contains("hidden")) {
+        closeLightbox();
+    }
+});
 
 function setActiveNav() {
     const scrollPos = window.scrollY + 120;

@@ -8,125 +8,221 @@
 </head>
 <body>
 
-    <img src="src/img/dark.svg" id="themeIcon" alt="Toggle theme">
+    <header class="site-header">
+        <a href="#about" class="logo">Raphael Dumdum</a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#sidelines" class="nav-link">Sidelines</a>
+            <a href="#credentials" class="nav-link">Credentials</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <button type="button" id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <img src="src/img/dark.svg" id="themeIcon" alt="Toggle theme">
+    </header>
 
     <main class="page">
-        
-        <section class="about-section">
+
+        <section id="about" class="about-section">
             <img src="src/img/picture.jpg" class="profile" alt="Raphael's photo">
-            
+
             <div class="about-text">
                 <h1>ABOUT ME</h1>
                 <p>
-                    Hello, I’m Raphael Dumdum, a passionate programming student
-                    at Mapua Malayan Colleges Mindanao who is still surviving. And 
-                    a part-time Roblox Developer specializing on graphic designs, 
+                    Hello, I'm Raphael Dumdum, a passionate programming student
+                    at Mapua Malayan Colleges Mindanao who is still surviving. And
+                    a part-time Roblox Developer specializing on graphic designs,
                     building, 3D modeling, and game design.
                 </p>
             </div>
         </section>
 
-        
-        <section class="section">
+        <section id="projects" class="section">
+            <div class="card">
+                <h2>Projects</h2>
+
+                <div class="projects-grid">
+
+                    <article class="project-card highlight-project capstone-project">
+                        <span class="project-badge">Capstone Project</span>
+                        <h3>GabAIRa Care</h3>
+                        <p class="project-subtitle">GabayRa Care: An AI-Driven Medication Management Application with IoT Pillbox Integration for Improved Adherence</p>
+                        <p>
+                            AI-driven medication management app with IoT pillbox integration, built to help patients with chronic conditions (hypertension, diabetes) stay on top of their medication, with real-time caregiver updates. Uses an XGBoost model trained on 10,000 patient records to predict adherence risk and time reminders (send now / delay / snooze). Syncs with an ESP32-based smart pillbox over REST API — patients confirm doses via physical button or in-app "Taken" tap, caregivers see it live on their dashboard. Built with React Native (Expo) + Neon PostgreSQL. UAT with 9 respondents (incl. a pharmacist): 100% pass rate (Patient role), 99.1% (Caretaker role), ISO/IEC 25010 rating 4.09 ("Acceptable"), highest in Usability (4.80).
+                        </p>
+                        <p class="project-team"><strong>Team:</strong> Raphael Miguel P. Dumdum, Jan Jeerzyll T. Hudes, Andre Jan M. Pangan</p>
+                        <div class="project-actions">
+                            <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read Full Paper (IMRAD)</a>
+                            <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View APK (Android)</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>The Unknown</h3>
+                        <p>Simple text-based psychological horror game.</p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Project: Still</h3>
+                        <p>Narrative linear game focused on story-driven gameplay.</p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>GreenSense</h3>
+                        <p>Environmental awareness website project.</p>
+
+                        <a href="https://spokiee.github.io/GreenSense/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="view-project">
+                            Click to view →
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Machine Problems</h3>
+                        <p>Some machine problems that we made earlier.</p>
+
+                        <a href="https://spokiee.github.io/MachineProblems/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="view-project">
+                            Click to view →
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Philippine Weather</h3>
+                        <p>Simple weather dashboard (Part 3 Examination)</p>
+
+                        <a href="https://dumdum-simple-weather-app.vercel.app/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="view-project">
+                            Click to view →
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>NeuroBeat</h3>
+                        <p>Web-based rhythm game</p>
+
+                        <a href="https://neurobeat.vercel.app"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="view-project">
+                            Click to view →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="sidelines" class="section">
+            <div class="card sidelines-card">
+                <h2>Sidelines</h2>
+                <p class="section-intro">Freelance and hobby work outside of software projects.</p>
+
+                <div class="sidelines-grid">
+
+                    <article class="sideline-card">
+                        <h3>Roblox Development — Building</h3>
+                        <p>
+                            Map and environment building for Roblox games — island builds, minigame maps,
+                            and commissioned world design through collab and client work.
+                        </p>
+                    </article>
+
+                    <article class="sideline-card">
+                        <h3>Roblox Development — GFX</h3>
+                        <p>
+                            3D renders, thumbnails, character poses, and promotional art for Roblox games
+                            and experiences.
+                        </p>
+                    </article>
+
+                    <article class="sideline-card sideline-stat">
+                        <h3>Roblox Experiences</h3>
+                        <p>Contributing over 200M visits in Roblox experiences.</p>
+                        <a href="https://www.roblox.com/users/299680615/profile"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-outline-deep">
+                            View Roblox Profile →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="credentials" class="section">
+            <div class="card">
+                <h2>Credentials / Certificates</h2>
+
+                <div class="credentials-grid">
+
+                    <article class="credential-card">
+                        <h3>[Certificate Title]</h3>
+                        <p>[Issuing Org — Date]</p>
+                        <a href="INSERT LINK" class="view-project">View credential →</a>
+                    </article>
+
+                    <article class="credential-card">
+                        <h3>[Certificate Title]</h3>
+                        <p>[Issuing Org — Date]</p>
+                        <a href="INSERT LINK" class="view-project">View credential →</a>
+                    </article>
+
+                    <article class="credential-card">
+                        <h3>[Certificate Title]</h3>
+                        <p>[Issuing Org — Date]</p>
+                        <a href="INSERT LINK" class="view-project">View credential →</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
             <div class="card">
                 <h2>Contact / Socials</h2>
 
                 <div class="social-links">
+                    <a class="social-btn x"
+                       href="https://x.com/SpawkleY"
+                       target="_blank" rel="noopener noreferrer">
+                        <img src="src/img/x.svg" class="icon" alt="">
+                        <span>X</span>
+                    </a>
+
                     <a class="social-btn github"
                        href="https://github.com/SpokIee"
                        target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/github.png" class="icon">
+                        <img src="src/img/github.png" class="icon" alt="">
                         <span>GitHub</span>
                     </a>
 
                     <a class="social-btn roblox"
                        href="https://www.roblox.com/users/299680615/profile"
                        target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/roblox.png" class="icon">
-                        <span>Profile</span>
+                        <img src="src/img/roblox.png" class="icon" alt="">
+                        <span>Roblox</span>
                     </a>
                 </div>
             </div>
         </section>
-
-        
-        <section class="section">
-    <div class="card">
-        <h2>Projects</h2>
-
-        <div class="projects-grid">
-
-            <article class="project-card">
-                <h3>The Unknown</h3>
-                <p>Simple text-based psychological horror game.</p>
-            </article>
-
-            <article class="project-card">
-                <h3>Roblox Experiences</h3>
-                <p>Contributing over 200M visits in roblox experiences.</p>
-            </article>
-
-            <article class="project-card">
-                <h3>Project: Still</h3>
-                <p>Narrative linear game focused on story-driven gameplay.</p>
-            </article>
-
-            <article class="project-card highlight-project">
-                <h3>GreenSense</h3>
-                <p>Environmental awareness website project.</p>
-
-                <a href="https://spokiee.github.io/GreenSense/" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="view-project">
-                    Click to view →
-                </a>
-            </article>
-
-            <article class="project-card">
-                <h3>Machine Problems</h3>
-                <p>Some machine problems that we made earlier.</p>
-
-                <a href="https://spokiee.github.io/MachineProblems/"
-                     target="_blank" 
-                     rel="noopener noreferrer" 
-                     class="view-project">
-                      Click to view →
-                </a>
-            </article>
-
-            <article class="project-card">
-                <h3>Philippine Weather</h3>
-                <p>Simple weather dashboard (Part 3 Examination)</p>
-
-                <a href="https://dumdum-simple-weather-app.vercel.app/"
-                     target="_blank" 
-                     rel="noopener noreferrer" 
-                     class="view-project">
-                      Click to view →
-                </a>
-            </article>
-
-            <article class="project-card">
-                <h3>NeuroBeat</h3>
-                <p>Web-based rhythm game</p>
-
-                <a href="https://neurobeat.vercel.app"
-                     target="_blank" 
-                     rel="noopener noreferrer" 
-                     class="view-project">
-                      Click to view →
-                </a>
-            </article>
-
-        </div>
-    </div>
-</section>
-
 
     </main>
 
     <script src="script.js"></script>
 </body>
 </html>
-

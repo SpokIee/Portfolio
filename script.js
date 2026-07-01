@@ -1,11 +1,13 @@
 const icon = document.getElementById("themeIcon");
 const navToggle = document.getElementById("navToggle");
-const siteNav = document.querySelector(".site-nav");
+const siteNav = document.getElementById("siteNav");
 const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("section[id]");
+const contactForm = document.getElementById("contactForm");
 
 icon.addEventListener("click", () => {
-    const isDark = document.body.classList.toggle("dark");
+    const isDark = document.documentElement.classList.toggle("dark");
+    document.body.classList.toggle("dark", isDark);
 
     icon.src = isDark
         ? "src/img/light.svg"
@@ -26,8 +28,14 @@ navLinks.forEach((link) => {
     });
 });
 
+if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+    });
+}
+
 function setActiveNav() {
-    const scrollPos = window.scrollY + 100;
+    const scrollPos = window.scrollY + 120;
 
     let current = "";
     sections.forEach((section) => {

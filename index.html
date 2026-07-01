@@ -3,220 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            if (location.protocol === "file:") return;
+            var segments = location.pathname.split("/").filter(Boolean);
+            var repoRoot = segments[0] === "Portfolio" ? "/Portfolio/" : "/";
+            var base = document.createElement("base");
+            base.href = location.origin + repoRoot;
+            document.head.appendChild(base);
+        })();
+    </script>
     <title>Raphael Dumdum | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        accent: "#F59E0B",
+                        accentLight: "#FBBF24",
+                        accentDeep: "#EA580C",
+                        bgDark: "#171717",
+                        surfaceDark: "#242424",
+                        bgLight: "#F5F5F5",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "system-ui", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-bgLight dark:bg-bgDark text-neutral-900 dark:text-neutral-100 font-sans transition-colors duration-300 antialiased">
 
-    <header class="site-header">
-        <a href="#about" class="logo">Raphael Dumdum</a>
+    <!-- Sticky navbar -->
+    <header class="sticky top-0 z-50 w-full bg-bgLight/95 dark:bg-bgDark/95 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800 shadow-sm">
+        <div class="max-w-5xl mx-auto px-5 sm:px-6 py-3.5 flex items-center gap-4 flex-wrap max-[600px]:relative">
 
-        <nav class="site-nav" aria-label="Main navigation">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#sidelines" class="nav-link">Sidelines</a>
-            <a href="#credentials" class="nav-link">Credentials</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
+            <a href="#about" class="text-base font-bold text-neutral-900 dark:text-white hover:text-accent transition-colors shrink-0">
+                Raphael Dumdum
+            </a>
 
-        <button type="button" id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <button type="button" id="navToggle" class="nav-toggle hidden max-[600px]:flex flex-col justify-center gap-[5px] w-8 h-8 p-1 ml-auto border border-neutral-300 dark:border-neutral-600 rounded text-neutral-900 dark:text-white" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <img src="src/img/dark.svg" id="themeIcon" alt="Toggle theme">
+            <nav id="siteNav" class="flex items-center gap-1 ml-auto max-[600px]:hidden max-[600px]:flex-col max-[600px]:items-stretch max-[600px]:w-full max-[600px]:order-last max-[600px]:pt-3 max-[600px]:mt-2 max-[600px]:border-t max-[600px]:border-neutral-200 max-[600px]:dark:border-neutral-700 max-[600px]:gap-0.5" aria-label="Main navigation">
+                <a href="#about" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">About</a>
+                <a href="#projects" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Projects</a>
+                <a href="#sidelines" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Sidelines</a>
+                <a href="#credentials" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Credentials</a>
+                <a href="#contact" class="nav-link px-2.5 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accentLight transition-colors whitespace-nowrap">Contact</a>
+            </nav>
+
+            <img src="src/img/dark.svg" id="themeIcon" class="w-7 h-7 cursor-pointer shrink-0 max-[600px]:order-3" alt="Toggle theme">
+        </div>
     </header>
 
-    <main class="page">
+    <main class="max-w-5xl mx-auto px-5 sm:px-6 pb-16">
 
-        <section id="about" class="about-section">
-            <img src="src/img/picture.jpg" class="profile" alt="Raphael's photo">
-
-            <div class="about-text">
-                <h1>ABOUT ME</h1>
-                <p>
-                    Hello, I'm Raphael Dumdum, a passionate programming student
-                    at Mapua Malayan Colleges Mindanao who is still surviving. And
-                    a part-time Roblox Developer specializing on graphic designs,
-                    building, 3D modeling, and game design.
-                </p>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <div class="card">
-                <h2>Projects</h2>
-
-                <div class="projects-grid">
-
-                    <article class="project-card highlight-project capstone-project">
-                        <span class="project-badge">Capstone Project</span>
-                        <h3>GabAIRa Care</h3>
-                        <p class="project-subtitle">GabayRa Care: An AI-Driven Medication Management Application with IoT Pillbox Integration for Improved Adherence</p>
-                        <p>
-                            AI-driven medication management app with IoT pillbox integration, built to help patients with chronic conditions (hypertension, diabetes) stay on top of their medication, with real-time caregiver updates. Uses an XGBoost model trained on 10,000 patient records to predict adherence risk and time reminders (send now / delay / snooze). Syncs with an ESP32-based smart pillbox over REST API — patients confirm doses via physical button or in-app "Taken" tap, caregivers see it live on their dashboard. Built with React Native (Expo) + Neon PostgreSQL. UAT with 9 respondents (incl. a pharmacist): 100% pass rate (Patient role), 99.1% (Caretaker role), ISO/IEC 25010 rating 4.09 ("Acceptable"), highest in Usability (4.80).
-                        </p>
-                        <p class="project-team"><strong>Team:</strong> Raphael Miguel P. Dumdum, Jan Jeerzyll T. Hudes, Andre Jan M. Pangan</p>
-                        <div class="project-actions">
-                            <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read Full Paper (IMRAD)</a>
-                            <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View APK (Android)</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>The Unknown</h3>
-                        <p>Simple text-based psychological horror game.</p>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>Project: Still</h3>
-                        <p>Narrative linear game focused on story-driven gameplay.</p>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>GreenSense</h3>
-                        <p>Environmental awareness website project.</p>
-
-                        <a href="https://spokiee.github.io/GreenSense/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="view-project">
-                            Click to view →
-                        </a>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>Machine Problems</h3>
-                        <p>Some machine problems that we made earlier.</p>
-
-                        <a href="https://spokiee.github.io/MachineProblems/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="view-project">
-                            Click to view →
-                        </a>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>Philippine Weather</h3>
-                        <p>Simple weather dashboard (Part 3 Examination)</p>
-
-                        <a href="https://dumdum-simple-weather-app.vercel.app/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="view-project">
-                            Click to view →
-                        </a>
-                    </article>
-
-                    <article class="project-card">
-                        <h3>NeuroBeat</h3>
-                        <p>Web-based rhythm game</p>
-
-                        <a href="https://neurobeat.vercel.app"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="view-project">
-                            Click to view →
-                        </a>
-                    </article>
-
+        <!-- Hero / About -->
+        <section id="about" class="scroll-mt-20 max-[600px]:scroll-mt-28 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+                <div>
+                    <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-3">About</p>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-neutral-900 dark:text-white">
+                        Hello, I'm<br>
+                        <span class="text-accent">a Programming Student</span>
+                    </h1>
+                    <p class="mt-6 text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg">
+                        Hello, I'm Raphael Dumdum, a passionate programming student
+                        at Mapua Malayan Colleges Mindanao who is still surviving. And
+                        a part-time Roblox Developer specializing on graphic designs,
+                        building, 3D modeling, and game design.
+                    </p>
+                    <a href="#projects" class="inline-block mt-8 px-8 py-3.5 bg-accent text-bgDark font-semibold text-sm rounded-sm hover:bg-accentLight transition-colors">
+                        View My Work
+                    </a>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                    <img src="src/img/picture.jpg" alt="Raphael's photo" class="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover border-4 border-accent shadow-lg">
                 </div>
             </div>
         </section>
 
-        <section id="sidelines" class="section">
-            <div class="card sidelines-card">
-                <h2>Sidelines</h2>
-                <p class="section-intro">Freelance and hobby work outside of software projects.</p>
+        <!-- Projects -->
+        <section id="projects" class="scroll-mt-20 max-[600px]:scroll-mt-28 py-12">
+            <div class="mb-10">
+                <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-1">Portfolio</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-3">Projects</h2>
+                <div class="w-16 h-1 bg-accent"></div>
+            </div>
 
-                <div class="sidelines-grid">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                    <article class="sideline-card">
-                        <h3>Roblox Development — Building</h3>
-                        <p>
-                            Map and environment building for Roblox games — island builds, minigame maps,
-                            and commissioned world design through collab and client work.
-                        </p>
-                    </article>
+                <!-- GabAIRa Care — featured capstone -->
+                <article class="sm:col-span-2 lg:col-span-3 bg-white dark:bg-surfaceDark p-6 sm:p-8 rounded-sm border-2 border-accent shadow-md">
+                    <span class="inline-block mb-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wide bg-accent text-bgDark rounded-full">Capstone Project</span>
+                    <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-1">GabAIRa Care</h3>
+                    <p class="text-sm italic text-neutral-500 dark:text-neutral-400 mb-4">GabayRa Care: An AI-Driven Medication Management Application with IoT Pillbox Integration for Improved Adherence</p>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+                        AI-driven medication management app with IoT pillbox integration, built to help patients with chronic conditions (hypertension, diabetes) stay on top of their medication, with real-time caregiver updates. Uses an XGBoost model trained on 10,000 patient records to predict adherence risk and time reminders (send now / delay / snooze). Syncs with an ESP32-based smart pillbox over REST API — patients confirm doses via physical button or in-app "Taken" tap, caregivers see it live on their dashboard. Built with React Native (Expo) + Neon PostgreSQL. UAT with 9 respondents (incl. a pharmacist): 100% pass rate (Patient role), 99.1% (Caretaker role), ISO/IEC 25010 rating 4.09 ("Acceptable"), highest in Usability (4.80).
+                    </p>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400"><strong class="text-neutral-800 dark:text-neutral-200">Team:</strong> Raphael Miguel P. Dumdum, Jan Jeerzyll T. Hudes, Andre Jan M. Pangan</p>
+                    <div class="flex flex-wrap gap-3 mt-5">
+                        <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-accent text-bgDark font-semibold text-sm rounded-sm hover:bg-accentLight transition-colors">Read Full Paper (IMRAD)</a>
+                        <a href="INSERT LINK" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 border-2 border-accent text-accent font-semibold text-sm rounded-sm hover:bg-accent hover:text-bgDark transition-colors">View APK (Android)</a>
+                    </div>
+                </article>
 
-                    <article class="sideline-card">
-                        <h3>Roblox Development — GFX</h3>
-                        <p>
-                            3D renders, thumbnails, character poses, and promotional art for Roblox games
-                            and experiences.
-                        </p>
-                    </article>
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                    <div class="text-accent text-2xl mb-3">👾</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">The Unknown</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Simple text-based psychological horror game.</p>
+                </article>
 
-                    <article class="sideline-card sideline-stat">
-                        <h3>Roblox Experiences</h3>
-                        <p>Contributing over 200M visits in Roblox experiences.</p>
-                        <a href="https://www.roblox.com/users/299680615/profile"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn-outline-deep">
-                            View Roblox Profile →
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                    <div class="text-accent text-2xl mb-3">📖</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">Project: Still</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Narrative linear game focused on story-driven gameplay.</p>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                    <div class="text-accent text-2xl mb-3">🌿</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">GreenSense</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Environmental awareness website project.</p>
+                    <a href="https://spokiee.github.io/GreenSense/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">Click to view →</a>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                    <div class="text-accent text-2xl mb-3">⚙️</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">Machine Problems</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Some machine problems that we made earlier.</p>
+                    <a href="https://spokiee.github.io/MachineProblems/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">Click to view →</a>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                    <div class="text-accent text-2xl mb-3">🌤️</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">Philippine Weather</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Simple weather dashboard (Part 3 Examination)</p>
+                    <a href="https://dumdum-simple-weather-app.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">Click to view →</a>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors group">
+                    <div class="text-accent text-2xl mb-3">🎵</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-2">NeuroBeat</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Web-based rhythm game</p>
+                    <a href="https://neurobeat.vercel.app" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">Click to view →</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Sidelines -->
+        <section id="sidelines" class="scroll-mt-20 max-[600px]:scroll-mt-28 py-12">
+            <div class="mb-10">
+                <p class="text-accentDeep text-sm uppercase tracking-widest font-semibold mb-1">Freelance</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-accentDeep mb-3">Sidelines</h2>
+                <div class="w-16 h-1 bg-accentDeep"></div>
+                <p class="mt-4 text-sm text-neutral-600 dark:text-neutral-400">Freelance and hobby work outside of software projects.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-accentDeep hover:shadow-md transition-shadow">
+                    <div class="text-accentDeep text-2xl mb-3">🏗️</div>
+                    <h3 class="font-bold text-lg text-accentDeep mb-2">Roblox Development — Building</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                        Map and environment building for Roblox games — island builds, minigame maps,
+                        and commissioned world design through collab and client work.
+                    </p>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-accentDeep hover:shadow-md transition-shadow">
+                    <div class="text-accentDeep text-2xl mb-3">🎨</div>
+                    <h3 class="font-bold text-lg text-accentDeep mb-2">Roblox Development — GFX</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                        3D renders, thumbnails, character poses, and promotional art for Roblox games
+                        and experiences.
+                    </p>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border-2 border-accentDeep hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
+                    <div class="text-accentDeep text-2xl mb-3">🎮</div>
+                    <h3 class="font-bold text-lg text-accentDeep mb-2">Roblox Experiences</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Contributing over 200M visits in Roblox experiences.</p>
+                    <a href="https://www.roblox.com/users/299680615/profile" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 border-2 border-accentDeep text-accentDeep font-semibold text-sm rounded-sm hover:bg-accentDeep hover:text-white transition-colors">View Roblox Profile →</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Credentials -->
+        <section id="credentials" class="scroll-mt-20 max-[600px]:scroll-mt-28 py-12">
+            <div class="mb-10">
+                <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-1">Achievements</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-3">Credentials</h2>
+                <div class="w-16 h-1 bg-accent"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
+                    <div class="text-accent text-2xl mb-3">📜</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-1">[Certificate Title]</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">[Issuing Org — Date]</p>
+                    <a href="INSERT LINK" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">View credential →</a>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
+                    <div class="text-accent text-2xl mb-3">📜</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-1">[Certificate Title]</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">[Issuing Org — Date]</p>
+                    <a href="INSERT LINK" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">View credential →</a>
+                </article>
+
+                <article class="bg-white dark:bg-surfaceDark p-6 rounded-sm border border-neutral-200 dark:border-neutral-700 hover:border-accentLight transition-colors">
+                    <div class="text-accent text-2xl mb-3">📜</div>
+                    <h3 class="font-bold text-lg text-neutral-900 dark:text-white mb-1">[Certificate Title]</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">[Issuing Org — Date]</p>
+                    <a href="INSERT LINK" class="text-sm font-semibold text-accent hover:text-accentDeep transition-colors">View credential →</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="scroll-mt-20 max-[600px]:scroll-mt-28 py-12">
+            <div class="mb-10">
+                <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-1">Get in touch</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-3">Connect with me</h2>
+                <div class="w-16 h-1 bg-accent"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <form id="contactForm" class="space-y-4">
+                    <input type="email" placeholder="Email" class="w-full px-4 py-3.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:border-accent transition-colors">
+                    <textarea placeholder="Message" rows="5" class="w-full px-4 py-3.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+                    <button type="submit" class="w-full px-6 py-3.5 bg-accent text-bgDark font-semibold text-sm rounded-sm hover:bg-accentLight transition-colors flex items-center justify-center gap-2">
+                        Stay Connected
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </form>
+
+                <div>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-5">Find me on social media:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://x.com/SpawkleY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-sm font-medium hover:border-accent transition-colors">
+                            <img src="src/img/x.svg" class="w-5 h-5 dark:invert" alt="">
+                            <span>X</span>
                         </a>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="credentials" class="section">
-            <div class="card">
-                <h2>Credentials / Certificates</h2>
-
-                <div class="credentials-grid">
-
-                    <article class="credential-card">
-                        <h3>[Certificate Title]</h3>
-                        <p>[Issuing Org — Date]</p>
-                        <a href="INSERT LINK" class="view-project">View credential →</a>
-                    </article>
-
-                    <article class="credential-card">
-                        <h3>[Certificate Title]</h3>
-                        <p>[Issuing Org — Date]</p>
-                        <a href="INSERT LINK" class="view-project">View credential →</a>
-                    </article>
-
-                    <article class="credential-card">
-                        <h3>[Certificate Title]</h3>
-                        <p>[Issuing Org — Date]</p>
-                        <a href="INSERT LINK" class="view-project">View credential →</a>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="card">
-                <h2>Contact / Socials</h2>
-
-                <div class="social-links">
-                    <a class="social-btn x"
-                       href="https://x.com/SpawkleY"
-                       target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/x.svg" class="icon" alt="">
-                        <span>X</span>
-                    </a>
-
-                    <a class="social-btn github"
-                       href="https://github.com/SpokIee"
-                       target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/github.png" class="icon" alt="">
-                        <span>GitHub</span>
-                    </a>
-
-                    <a class="social-btn roblox"
-                       href="https://www.roblox.com/users/299680615/profile"
-                       target="_blank" rel="noopener noreferrer">
-                        <img src="src/img/roblox.png" class="icon" alt="">
-                        <span>Roblox</span>
-                    </a>
+                        <a href="https://github.com/SpokIee" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-sm font-medium hover:border-accent transition-colors">
+                            <img src="src/img/github.png" class="w-5 h-5" alt="">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.roblox.com/users/299680615/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surfaceDark border border-neutral-200 dark:border-neutral-700 rounded-sm text-sm font-medium hover:border-accent transition-colors">
+                            <img src="src/img/roblox.png" class="w-5 h-5" alt="">
+                            <span>Roblox</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

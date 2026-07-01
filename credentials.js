@@ -37,7 +37,7 @@ const CREDENTIALS = [
     },
     {
         file: "cert-coursera-6.pdf",
-        title: "TITLE PENDING",
+        title: "Introduction to User Experience Design",
         issuer: "Georgia Institute of Technology (Coursera)",
         date: "May 21, 2026",
     },

@@ -7,6 +7,9 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const lightboxClose = document.getElementById("lightboxClose");
 
+const PDFJS_VERSION = "3.11.174";
+const PDF_THUMB_HEIGHT = 144;
+
 icon.addEventListener("click", () => {
     const isDark = document.documentElement.classList.toggle("dark");
     document.body.classList.toggle("dark", isDark);
@@ -65,6 +68,59 @@ document.addEventListener("keydown", (event) => {
         closeLightbox();
     }
 });
+
+function showPdfFallback(canvas) {
+    canvas.classList.add("hidden");
+    const fallback = canvas.nextElementSibling;
+    if (fallback) fallback.classList.remove("hidden");
+}
+
+async function renderPdfThumbnail(canvas) {
+    const pdfUrl = canvas.dataset.pdf;
+    if (!pdfUrl || typeof pdfjsLib === "undefined") {
+        showPdfFallback(canvas);
+        return;
+    }
+
+    try {
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/pdf.worker.min.js`;
+
+        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+        const page = await pdf.getPage(1);
+        const containerWidth = canvas.parentElement.clientWidth || 280;
+        const viewport = page.getViewport({ scale: 1 });
+        const scale = Math.min(
+            containerWidth / viewport.width,
+            PDF_THUMB_HEIGHT / viewport.height
+        );
+        const scaledViewport = page.getViewport({ scale });
+        const context = canvas.getContext("2d");
+
+        canvas.width = scaledViewport.width;
+        canvas.height = scaledViewport.height;
+
+        await page.render({
+            canvasContext: context,
+            viewport: scaledViewport,
+        }).promise;
+    } catch (error) {
+        console.warn("PDF thumbnail render failed:", pdfUrl, error);
+        showPdfFallback(canvas);
+    }
+}
+
+function initPdfThumbnails() {
+    document.querySelectorAll(".pdf-thumb-canvas").forEach((canvas) => {
+        renderPdfThumbnail(canvas);
+    });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPdfThumbnails);
+} else {
+    initPdfThumbnails();
+}
 
 function setActiveNav() {
     const scrollPos = window.scrollY + 120;

@@ -33,8 +33,9 @@ navLinks.forEach((link) => {
 document.querySelectorAll(".gallery-thumb").forEach((thumb) => {
     thumb.addEventListener("click", () => {
         if (!lightbox || !lightboxImg) return;
-        lightboxImg.src = thumb.dataset.full || thumb.src;
-        lightboxImg.alt = thumb.alt;
+        const img = thumb.querySelector("img");
+        lightboxImg.src = thumb.dataset.full || thumb.src || (img && img.src);
+        lightboxImg.alt = (img && img.alt) || thumb.getAttribute("aria-label") || "";
         lightbox.classList.remove("hidden");
         lightbox.classList.add("flex");
         document.body.classList.add("overflow-hidden");

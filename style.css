@@ -70,3 +70,16 @@ html {
     transform: scale(1.03);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+.credential-preview {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.credential-preview:hover {
+    transform: scale(1.02);
+}
+
+.credential-preview img {
+    pointer-events: none;
+}

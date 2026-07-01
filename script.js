@@ -2,6 +2,7 @@ const icon = document.getElementById("themeIcon");
 const navToggle = document.getElementById("navToggle");
 const siteNav = document.getElementById("siteNav");
 const navLinks = document.querySelectorAll(".nav-link");
+const scrollLinks = document.querySelectorAll(".scroll-link");
 const sections = document.querySelectorAll("section[id]");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
@@ -36,6 +37,36 @@ navLinks.forEach((link) => {
         navToggle.setAttribute("aria-expanded", "false");
     });
 });
+
+function stripHashFromUrl() {
+    const cleanUrl = window.location.pathname + window.location.search;
+    history.replaceState(null, document.title, cleanUrl);
+}
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    section.scrollIntoView({ behavior: "smooth" });
+    stripHashFromUrl();
+}
+
+scrollLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const sectionId = link.dataset.scrollTo;
+        if (sectionId) scrollToSection(sectionId);
+    });
+});
+
+if (window.location.hash) {
+    const sectionId = window.location.hash.slice(1);
+    requestAnimationFrame(() => {
+        scrollToSection(sectionId);
+        stripHashFromUrl();
+    });
+}
+
+window.addEventListener("hashchange", stripHashFromUrl);
 
 document.addEventListener("click", (event) => {
     const thumb = event.target.closest(".gallery-thumb");
@@ -178,7 +209,7 @@ function setActiveNav() {
     });
 
     navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+        link.classList.toggle("active", link.dataset.scrollTo === current);
     });
 }
 
